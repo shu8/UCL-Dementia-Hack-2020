@@ -31,12 +31,12 @@ class MemoriesPage extends StatelessWidget {
                 label: 'very bad',
               ),
               Mood(
-                icon: Icons.mood_bad,
+                icon: Icons.sentiment_dissatisfied,
                 color: Colors.orange,
                 label: 'pretty bad',
               ),
               Mood(
-                icon: Icons.mood,
+                icon: Icons.sentiment_satisfied,
                 color: Colors.yellow,
                 label: 'pretty good',
               ),
