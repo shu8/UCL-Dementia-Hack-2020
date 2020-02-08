@@ -84,6 +84,7 @@ class Mood extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       icon: this.icon,
+      splashColor: this.color,
       color: this.color,
       iconSize: 60,
       onPressed: () {},
