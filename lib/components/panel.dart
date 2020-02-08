@@ -21,7 +21,7 @@ class Panel extends StatelessWidget {
     return new GestureDetector(
         onTap: () => this.clickHandler(),
         child: new Container(
-          // height: 150.0,
+          height: 100.0,
           margin: new EdgeInsets.all(10.0),
           decoration: new BoxDecoration(
             borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
