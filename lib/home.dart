@@ -1,3 +1,4 @@
+import 'package:dementia_hack/components/panel.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -5,7 +6,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Homepage'),
+          title: const Text('Rewind'),
           backgroundColor: Colors.redAccent,
           centerTitle: true,
         ),
@@ -14,20 +15,36 @@ class HomePage extends StatelessWidget {
           children: <Widget>[
             Align(
                 alignment: Alignment.topLeft,
-                child: TestCircle(
-                    'Add Memories', Colors.purpleAccent, Colors.purple)),
+                child: Panel(
+                  title: 'Add memories',
+                  icon: Icons.add_a_photo,
+                  description: 'Add a memory for today',
+                  color: Colors.purple,
+                )),
             Align(
                 alignment: Alignment.topRight,
-                child: TestCircle(
-                    'Calendar', Colors.lightBlueAccent, Colors.blue)),
+                child: Panel(
+                  title: 'Calendar',
+                  icon: Icons.calendar_today,
+                  description: 'View your moods over time',
+                  color: Colors.blue,
+                )),
             Align(
                 alignment: Alignment.bottomLeft,
-                child:
-                    TestCircle('Rewind', Colors.yellowAccent, Colors.yellow)),
+                child: Panel(
+                  title: 'Rewind',
+                  icon: Icons.question_answer,
+                  description: 'Answer questions on your past',
+                  color: Colors.deepOrange,
+                )),
             Align(
                 alignment: Alignment.bottomRight,
-                child:
-                    TestCircle('Activities', Colors.greenAccent, Colors.green))
+                child: Panel(
+                  title: 'Activities',
+                  icon: Icons.directions_run,
+                  description: 'Choose an activity to do today!',
+                  color: Colors.green,
+                )),
           ],
         ));
   }
