@@ -1,4 +1,4 @@
-import 'package:dementia_hack/memories.dart';
+import 'package:dementia_hack/memoriesInitial.dart';
 import 'package:flutter/material.dart';
 import 'package:dementia_hack/common.dart';
 import 'package:dementia_hack/activity.dart';
@@ -24,7 +24,8 @@ class HomePage extends StatelessWidget {
                   icon: Icons.add_a_photo,
                   description: 'Add a memory for today',
                   color: Colors.purple,
-                  clickHandler: () => moveScreen(ctxt, () => MemoriesPage()),
+                  clickHandler: () =>
+                      moveScreen(ctxt, () => MemoriesInitialPage()),
                 )),
             Align(
                 alignment: Alignment.topRight,
