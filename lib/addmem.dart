@@ -83,7 +83,7 @@ class MyApp extends StatelessWidget {
                       color: Colors.transparent,
                       height: 50.0,
                       child: (Icon(
-                        Icons.camera_roll,
+                        Icons.camera,
                         color: Colors.black,
                         size: 50.0,
                         semanticLabel: 'add photo',
@@ -112,6 +112,31 @@ class MyApp extends StatelessWidget {
                         color: Colors.black,
                         size: 50.0,
                         semanticLabel: 'add video',
+                      ))))
+            ]),
+            Row(children: <Widget>[
+              Expanded(
+                child: Container(
+                  color: Colors.transparent,
+                  height: 50.0,
+                  child: Text(
+                    "Add audio:",
+                    style: TextStyle(
+                      fontSize: 22.0,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                  child: Container(
+                      color: Colors.transparent,
+                      height: 50.0,
+                      child: (Icon(
+                        Icons.hearing,
+                        color: Colors.black,
+                        size: 50.0,
+                        semanticLabel: 'add audio',
                       ))))
             ])
           ],
