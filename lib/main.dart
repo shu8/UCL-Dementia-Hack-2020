@@ -67,7 +67,7 @@ class OnboardingPage extends StatelessWidget {
                     Navigator.push(
                         ctxt,
                         new MaterialPageRoute(
-                          builder: (ctxt) => ActivityPage(),
+                          builder: (ctxt) => HomePage(),
                         ))
                   },
                   child: Text('Start'),
