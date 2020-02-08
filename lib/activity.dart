@@ -1,3 +1,4 @@
+import 'package:dementia_hack/components/panel.dart';
 import 'package:flutter/material.dart';
 import 'common.dart';
 
@@ -8,16 +9,42 @@ class ActivityPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("activities"),
+        title: Text("Activities"),
       ),
       body: Column(
         children: <Widget>[
-          new ActivityBlock(
-              title: 'Cooking', color: MaterialColor(0xFFFF7F50, color)),
-          new ActivityBlock(
-              title: 'Reading', color: MaterialColor(0xFFBA55D3, color)),
-          new ActivityBlock(
-              title: 'Exersise', color: MaterialColor(0xFF228B22, color)),
+          Align(
+              alignment: Alignment.topLeft,
+              child: Panel(
+                title: 'Exercise',
+                icon: Icons.directions_run,
+                description: '',
+                color: Colors.green,
+              )),
+          Align(
+              alignment: Alignment.topLeft,
+              child: Panel(
+                title: 'Cooking',
+                icon: Icons.fastfood,
+                description: '',
+                color: Colors.orange,
+              )),
+          Align(
+              alignment: Alignment.topLeft,
+              child: Panel(
+                title: 'Arts and Crafts',
+                icon: Icons.local_activity,
+                description: '',
+                color: Colors.red[200],
+              )),
+          Align(
+              alignment: Alignment.topLeft,
+              child: Panel(
+                title: 'Socializing',
+                icon: Icons.people,
+                description: '',
+                color: Colors.blue[300],
+              )),
         ],
       ),
     );
