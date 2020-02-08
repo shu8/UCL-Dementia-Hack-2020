@@ -50,6 +50,7 @@ class MemoriesPage extends StatelessWidget {
           AddX(type: 'photo', icon: Icons.camera),
           AddX(type: 'video', icon: Icons.camera_roll),
           AddX(type: 'audio', icon: Icons.hearing),
+          TextInput(),
         ],
       ),
     );
@@ -107,5 +108,27 @@ class AddX extends StatelessWidget {
                 semanticLabel: 'add ' + this.type,
               ))))
     ]);
+  }
+}
+
+class TextInput extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    child:
+    Text(
+      'Add text',
+      style: TextStyle(
+        fontSize: 22.0,
+        color: Colors.black,
+      ),
+    );}
+  Widget build(BuildContext context) {
+    return new TextField(
+      style: new TextStyle(
+          fontSize: 42.0,
+          color: const Color(0xFF000000),
+          fontWeight: FontWeight.w200,
+          fontFamily: "Roboto"),
+    );
   }
 }
