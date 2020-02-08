@@ -13,17 +13,28 @@ class HomePage extends StatelessWidget {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Align(alignment: Alignment.topLeft, child: TestCircle('Add Memories', Colors.purpleAccent, Colors.purple)),
-            Align(alignment: Alignment.topRight, child: TestCircle('Calendar', Colors.lightBlueAccent, Colors.blue)),
-            Align(alignment: Alignment.bottomLeft, child: TestCircle('Rewind', Colors.yellowAccent, Colors.yellow)),
-            Align(alignment: Alignment.bottomRight, child: TestCircle('Activities', Colors.greenAccent, Colors.green))
+            Align(
+                alignment: Alignment.topLeft,
+                child: TestCircle(
+                    'Add Memories', Colors.purpleAccent, Colors.purple)),
+            Align(
+                alignment: Alignment.topRight,
+                child: TestCircle(
+                    'Calendar', Colors.lightBlueAccent, Colors.blue)),
+            Align(
+                alignment: Alignment.bottomLeft,
+                child:
+                    TestCircle('Rewind', Colors.yellowAccent, Colors.yellow)),
+            Align(
+                alignment: Alignment.bottomRight,
+                child:
+                    TestCircle('Activities', Colors.greenAccent, Colors.green))
           ],
         ));
   }
 }
 
 class TestCircle extends StatelessWidget {
-
   String message;
   Color baseColor;
   Color splashColor;
