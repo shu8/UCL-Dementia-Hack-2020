@@ -1,9 +1,11 @@
-import 'package:dementia_hack/components/panel.dart';
 import 'package:flutter/material.dart';
+import 'package:dementia_hack/common.dart';
+import 'package:dementia_hack/activity.dart';
+import 'package:dementia_hack/components/panel.dart';
 
 class HomePage extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext ctxt) {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Rewind'),
@@ -20,6 +22,7 @@ class HomePage extends StatelessWidget {
                   icon: Icons.add_a_photo,
                   description: 'Add a memory for today',
                   color: Colors.purple,
+                  clickHandler: () => print('memories'), // TODO add memories
                 )),
             Align(
                 alignment: Alignment.topRight,
@@ -28,6 +31,7 @@ class HomePage extends StatelessWidget {
                   icon: Icons.calendar_today,
                   description: 'View your moods over time',
                   color: Colors.blue,
+                  clickHandler: () => print('calendar'), // TODO add calendar
                 )),
             Align(
                 alignment: Alignment.bottomLeft,
@@ -36,6 +40,8 @@ class HomePage extends StatelessWidget {
                   icon: Icons.question_answer,
                   description: 'Answer questions on your past',
                   color: Colors.deepOrange,
+                  clickHandler: () =>
+                      print('rewind quiz'), // TODO add rewind quiz
                 )),
             Align(
                 alignment: Alignment.bottomRight,
@@ -44,66 +50,8 @@ class HomePage extends StatelessWidget {
                   icon: Icons.directions_run,
                   description: 'Choose an activity to do today!',
                   color: Colors.green,
+                  clickHandler: () => moveScreen(ctxt, () => ActivityPage()),
                 )),
-          ],
-        ));
-  }
-}
-
-class TestCircle extends StatelessWidget {
-  final String message;
-  final Color baseColor;
-  final Color splashColor;
-
-  TestCircle(this.message, this.baseColor, this.splashColor);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: SizedBox(
-              child: FlatButton(
-                color: baseColor,
-                textColor: Colors.white,
-                disabledColor: Colors.grey,
-                disabledTextColor: Colors.black,
-                padding: EdgeInsets.all(65.5),
-                splashColor: splashColor,
-                onPressed: () {/* ... */},
-                child: Text(message, style: TextStyle(fontSize: 20.0)),
-              ),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class Circle extends StatelessWidget {
-  // This widget is the root of your application.
-  final String message;
-  final Color color;
-
-  Circle(this.message, this.color);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        width: 100.0,
-        height: 100.0,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            FloatingActionButton(
-              backgroundColor: color,
-              elevation: 0,
-              onPressed: () => {},
-            ),
-            Container(
-                padding: EdgeInsets.fromLTRB(0, 10, 0, 0), child: Text(message))
           ],
         ));
   }

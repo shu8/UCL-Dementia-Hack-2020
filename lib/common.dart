@@ -12,3 +12,11 @@ const Map<int, Color> color = {
   800: Color.fromRGBO(136, 14, 79, .9),
   900: Color.fromRGBO(136, 14, 79, 1),
 };
+
+void moveScreen(ctxt, pageGenerator) {
+  Navigator.push(
+      ctxt,
+      new MaterialPageRoute(
+        builder: (ctxt) => pageGenerator(),
+      ));
+}
