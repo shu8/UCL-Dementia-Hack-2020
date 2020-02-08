@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,19 +34,15 @@ class HomePage extends StatelessWidget {
 }
 
 class TestCircle extends StatelessWidget {
-  String message;
-  Color baseColor;
-  Color splashColor;
+  final String message;
+  final Color baseColor;
+  final Color splashColor;
 
   TestCircle(this.message, this.baseColor, this.splashColor);
 
   @override
   Widget build(BuildContext context) {
-    MediaQueryData queryData = MediaQuery.of(context);
-    double devicePixelRatio = queryData.devicePixelRatio;
     return Center(
-      //   child: Align(
-      // alignment: Alignment.topCenter,
       child: Row(
         children: <Widget>[
           Expanded(
@@ -72,8 +67,8 @@ class TestCircle extends StatelessWidget {
 
 class Circle extends StatelessWidget {
   // This widget is the root of your application.
-  String message;
-  Color color;
+  final String message;
+  final Color color;
 
   Circle(this.message, this.color);
 

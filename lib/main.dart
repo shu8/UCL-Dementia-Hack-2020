@@ -1,7 +1,7 @@
-import 'package:dementia_hack/activity.dart';
 import 'package:flutter/material.dart';
-import 'common.dart';
-import 'home.dart';
+import 'package:dementia_hack/common.dart';
+import 'package:dementia_hack/home.dart';
+import 'package:dementia_hack/activity.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,7 +9,7 @@ void main() => runApp(MyApp());
 const ONBOARDING_COMPLETE = false;
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  // Root of application
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
