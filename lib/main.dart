@@ -1,3 +1,4 @@
+import 'package:dementia_hack/activity.dart';
 import 'package:flutter/material.dart';
 
 import 'home.dart';
@@ -18,7 +19,7 @@ Map<int, Color> color = {
 };
 
 // TODO persistently store this
-const ONBOARDING_COMPLETE = false;
+const ONBOARDING_COMPLETE = true;
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: MaterialColor(0xFF00008B, color),
       ),
-      home: ONBOARDING_COMPLETE ? HomePage() : OnboardingPage(title: 'Rewind'),
+      // home: ONBOARDING_COMPLETE ? HomePage() : OnboardingPage(title: 'Rewind'),
+      home: MyActivityPage(title: 'Activities'),
     );
   }
 }
