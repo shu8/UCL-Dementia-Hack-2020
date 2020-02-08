@@ -13,7 +13,8 @@ class HomePage extends StatelessWidget {
           backgroundColor: Colors.redAccent,
           centerTitle: true,
         ),
-        body: Column(
+        body: SingleChildScrollView(
+            child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Align(
@@ -54,6 +55,6 @@ class HomePage extends StatelessWidget {
                   clickHandler: () => moveScreen(ctxt, () => ActivityPage()),
                 )),
           ],
-        ));
+        )));
   }
 }

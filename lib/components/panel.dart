@@ -6,6 +6,7 @@ class Panel extends StatelessWidget {
   final IconData icon;
   final Color color;
   final Function clickHandler;
+  final double height;
 
   Panel(
       {Key key,
@@ -13,15 +14,17 @@ class Panel extends StatelessWidget {
       this.description,
       this.icon,
       this.color,
+      this.height,
       this.clickHandler})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return new GestureDetector(
-        onTap: () => this.clickHandler(),
+    return new FlatButton(
+        splashColor: this.color,
+        onPressed: () => this.clickHandler(),
         child: new Container(
-          height: 100.0,
+          height: this.height,
           margin: new EdgeInsets.all(10.0),
           decoration: new BoxDecoration(
             borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
