@@ -28,6 +28,8 @@ class ActivityPage extends StatelessWidget {
               title: 'Cooking', color: MaterialColor(0xFFFF7F50, color)),
           new ActivityBlock(
               title: 'Reading', color: MaterialColor(0xFFBA55D3, color)),
+          new ActivityBlock(
+              title: 'Reading', color: MaterialColor(0xFFBA55D3, color)),
         ],
       ),
     );
@@ -64,7 +66,7 @@ class ActivityBlock extends StatelessWidget {
 }
 // Center is a layout widget. It takes a single child and positions it
 // in the middle of the parent.
-// reading
+
 // arts and crafts
 // socializing
 // exersise
