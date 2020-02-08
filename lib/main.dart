@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:dementia_hack/common.dart';
 import 'package:dementia_hack/home.dart';
 import 'package:dementia_hack/activity.dart';
+import 'package:flutter/services.dart';
 
 // TODO persistently store this
 const ONBOARDING_COMPLETE = false;
 
-void main() => runApp(MyApp());
+void main() {
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  runApp(new MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // Root of application
