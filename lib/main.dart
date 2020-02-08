@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:dementia_hack/common.dart';
 import 'package:dementia_hack/home.dart';
 import 'package:dementia_hack/activity.dart';
+
 import 'package:flutter/services.dart';
 
 // TODO persistently store this
@@ -17,6 +18,10 @@ class MyApp extends StatelessWidget {
   // Root of application
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MaterialApp(
       title: 'Rewind',
       theme: ThemeData(
