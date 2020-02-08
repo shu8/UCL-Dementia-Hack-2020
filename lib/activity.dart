@@ -70,8 +70,9 @@ class _MyActivityPageState extends State<MyActivityPage> {
       body: Column(
         children: <Widget>[
           new ActivityBlock(
-              title: 'Reading', color: MaterialColor(0xFF7FFF00, color)),
-          new ActivityBlock(title: 'Cooking')
+              title: 'Reading', color: MaterialColor(0xFFBA55D3, color)),
+          new ActivityBlock(
+              title: 'Cooking', color: MaterialColor(0xFFFF7F50, color))
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -94,18 +95,16 @@ class ActivityBlock extends StatelessWidget {
       //   child: Align(
       // alignment: Alignment.topCenter,
       child: Row(
-        mainAxisSize: MainAxisSize.min,
+        // mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Expanded(
             child: FlatButton(
               color: this.color,
               textColor: Colors.white,
-              disabledColor: Colors.grey,
-              disabledTextColor: Colors.black,
-              padding: EdgeInsets.all(100),
+              padding: EdgeInsets.all(80),
               splashColor: Colors.blueAccent,
               onPressed: () {/* ... */},
-              child: Text(this.title, style: TextStyle(fontSize: 20.0)),
+              child: Text(this.title, style: TextStyle(fontSize: 50.0)),
             ),
           ),
         ],
