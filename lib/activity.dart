@@ -29,7 +29,7 @@ class ActivityPage extends StatelessWidget {
           new ActivityBlock(
               title: 'Reading', color: MaterialColor(0xFFBA55D3, color)),
           new ActivityBlock(
-              title: 'Reading', color: MaterialColor(0xFFBA55D3, color)),
+              title: 'Exersise', color: MaterialColor(0xFF800000, color)),
         ],
       ),
     );
@@ -53,7 +53,7 @@ class ActivityBlock extends StatelessWidget {
             child: FlatButton(
               color: this.color,
               textColor: Colors.white,
-              padding: EdgeInsets.all(80),
+              padding: EdgeInsets.all(50),
               splashColor: Colors.blueAccent,
               onPressed: () {/* ... */},
               child: Text(this.title, style: TextStyle(fontSize: 50.0)),
