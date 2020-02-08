@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:dementia_hack/Database.dart';
+
 import 'package:dementia_hack/common.dart';
 import 'package:dementia_hack/home.dart';
-import 'package:dementia_hack/activity.dart';
 
 import 'package:flutter/services.dart';
 
@@ -9,6 +10,7 @@ import 'package:flutter/services.dart';
 const ONBOARDING_COMPLETE = false;
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(new MyApp());

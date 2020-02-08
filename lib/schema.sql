@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS memories (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    timestamp INTEGER,
+    text TEXT
+);
+
+CREATE TABLE IF NOT EXISTS moods (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    mood TEXT
+);
+
+CREATE TABLE IF NOT EXISTS media (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    memory_id INTEGER,
+    path TEXT
+);
+
+INSERT INTO memories (timestamp, text) VALUES (1577846800000, "TEST");
+INSERT INTO memories (timestamp, text) VALUES (1579836800000, "TEST");
+INSERT INTO memories (timestamp, text) VALUES (1779836800000, "TEST");
