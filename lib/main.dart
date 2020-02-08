@@ -3,10 +3,10 @@ import 'package:dementia_hack/common.dart';
 import 'package:dementia_hack/home.dart';
 import 'package:dementia_hack/activity.dart';
 
-void main() => runApp(MyApp());
-
 // TODO persistently store this
 const ONBOARDING_COMPLETE = false;
+
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // Root of application
@@ -32,6 +32,8 @@ class OnboardingPage extends StatelessWidget {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text(this.title),
+        backgroundColor: Colors.redAccent,
+        centerTitle: true,
       ),
       body: Center(
         child: Column(
