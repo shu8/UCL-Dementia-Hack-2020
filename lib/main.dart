@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'home.dart';
+
 void main() => runApp(MyApp());
 
 Map<int, Color> color = {
@@ -62,31 +64,6 @@ class OnboardingPage extends StatelessWidget {
                   onPressed: () => {},
                   child: Text('Start'),
                 )),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  HomePage() : super();
-
-  @override
-  Widget build(BuildContext ctxt) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('HOME'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('HOME',
-                style: TextStyle(
-                    fontFamily: 'Roboto',
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold)),
           ],
         ),
       ),
