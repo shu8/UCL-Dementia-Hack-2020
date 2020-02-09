@@ -12,15 +12,27 @@ class DBProvider {
     if (_database != null) return _database;
     _database = await getDatabaseInstance();
     await _database.execute(
-        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (1, 1779836800000, 3, "TEST3");');
+        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (1, 1579609632000, 3, "TEST3");');
     await _database.execute(
         'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (2, 1579836800000, 2, "TEST2");');
     await _database.execute(
         'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (3, 1779836800000, 3, "TEST3")');
     await _database.execute(
-        'INSERT OR IGNORE INTO media (memory_id, path) VALUES(1, "path1");');
+        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (4, 1577881632000, 4, "TEST4")');
     await _database.execute(
-        'INSERT OR IGNORE INTO media (memory_id, path) VALUES(1, "path2");');
+        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (5, 1578659232000, 3, "TEST5")');
+    await _database.execute(
+        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (6, 1579004832000, 3, "TEST6")');
+    await _database.execute(
+        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (7, 1579091232000, 3, "TEST7")');
+    await _database.execute(
+        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (8, 1579177632000, 3, "TEST8")');
+    await _database.execute(
+        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (9, 1779836800000, 3, "TEST9")');
+    await _database.execute(
+        'INSERT OR IGNORE INTO media (id, memory_id, path) VALUES(1, 1, "path1");');
+    await _database.execute(
+        'INSERT OR IGNORE INTO media (id, memory_id, path) VALUES(2, 1, "path2");');
 
     return _database;
   }

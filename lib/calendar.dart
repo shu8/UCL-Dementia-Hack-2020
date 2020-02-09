@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 import 'Memory.dart';
+import 'Database.dart';
+import 'components/panel.dart';
 
 class CalendarPage extends StatefulWidget {
   @override
@@ -22,14 +24,14 @@ class _CalendarPageState extends State<CalendarPage> {
     DBProvider.db.getAllMemories().then((memories) => {
           this.setState(() {
             this.memories = memories;
-            numOfMemForDay = getInitialMap(memories);
+            numOfMemForDay = getMemoryMap(memories);
           })
         });
 
     _controller = CalendarController();
   }
 
-  Map<String, int> getInitialMap(List<Memory> memories) {
+  Map<String, int> getMemoryMap(List<Memory> memories) {
     Map<String, int> all = Map<String, int>();
     for (Memory memory in memories) {
       all.putIfAbsent(memory.getDate(), () => memory.getNumOfMemories());
@@ -107,21 +109,115 @@ class _CalendarPageState extends State<CalendarPage> {
               ),
               calendarController: _controller, //actual calendar
             ),
-            ...memories.map((memory) => ListTile(
-                  leading: Icon(Icons.favorite),
-                  title: Text(memory.getText()),
+            ...memories.map((memory) => Panel(
+                  title: mapTitle(memory.getCategory()),
+                  height: 60,
+                  icon: mapIcon(memory.getCategory()),
+                  description: memory.getText(),
+                  color: mapColor(memory.getCategory()),
                 ))
+
+            /*
+                Align(
+                alignment: Alignment.topLeft,
+                child: Panel(
+                  title: 'Add memories',
+                  height: 160,
+                  icon: Icons.add_a_photo,
+                  description: 'Add a memory for today',
+                  color: Colors.purple,
+                  clickHandler: () =>
+                      moveScreen(ctxt, () => MemoriesInitialPage()),
+                )) */
           ],
         ),
       ),
     );
   }
 
-  Icon mapIcon(int category) {
+  String mapTitle(int category) {
     switch (category) {
+      case 0:
+        {
+          return "General";
+        }
       case 1:
         {
-          return Icon(Icons.local_activity);
+          return "Exercise";
+        }
+      case 2:
+        {
+          return "Cooking";
+        }
+      case 3:
+        {
+          return "Arts and Crafts";
+        }
+      case 4:
+        {
+          return "Socializing";
+        }
+      default:
+        {
+          return "General";
+        }
+    }
+  }
+
+  IconData mapIcon(int category) {
+    switch (category) {
+      case 0:
+        {
+          return Icons.event;
+        }
+      case 1:
+        {
+          return Icons.directions_run;
+        }
+      case 2:
+        {
+          return Icons.fastfood;
+        }
+      case 3:
+        {
+          return Icons.local_activity;
+        }
+      case 4:
+        {
+          return Icons.people;
+        }
+      default:
+        {
+          return Icons.event;
+        }
+    }
+  }
+
+  Color mapColor(int category) {
+    switch (category) {
+      case 0:
+        {
+          return Colors.pink[300];
+        }
+      case 1:
+        {
+          return Colors.green;
+        }
+      case 2:
+        {
+          return Colors.orange;
+        }
+      case 3:
+        {
+          return Colors.red[200];
+        }
+      case 4:
+        {
+          return Colors.blue[300];
+        }
+      default:
+        {
+          return Colors.pink[300];
         }
     }
   }
@@ -129,6 +225,7 @@ class _CalendarPageState extends State<CalendarPage> {
   Color colorDay(DateTime day) {
     int green = min(255, 3 * 10);
     String ymd = day.toString().substring(0, day.toString().indexOf(' '));
+    print("testing: $numOfMemForDay");
     if (numOfMemForDay.containsKey(ymd)) {
       print("contains key!");
       int green = min(10 * numOfMemForDay[ymd], 255);
