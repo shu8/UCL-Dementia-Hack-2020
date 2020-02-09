@@ -5,10 +5,14 @@ import 'Memory.dart';
 
 //create array of memory objects
 
-Memory test1 = Memory(text:"test", date:"1234", media:[]);
-Memory test2 = Memory(text:"test2", date:"1243", media:[]);
+Memory test1 = Memory(category: 2, text:"Baked a cake today.", date:"1234", media:[]);
+Memory test2 = Memory(category: 1, text:"Walked around the park.", date:"1243", media:[]);
+Memory test3 = Memory(category: 3, text:"Knitted a nice scarf.", date:"1324", media:[]);
+Memory test4 = Memory(category: 4, text:"Played around with nephews and nieces.", date:"1342", media:[]);
 
-var ok = ["ok", "cool", "cool"];
+List<Memory> memories = [test1, test2, test3, test4];
+
+var ok = ["cookies", "chocolate", "cake"];
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -42,42 +46,44 @@ class _CalendarPageState extends State<CalendarPage> {
 
     @override
     Widget build(BuildContext context) {
-      return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.lightBlueAccent,
-          title: Text('Flutter Calendar'),
-        ),
-        body: SingleChildScrollView(//scroll
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              TableCalendar( //calendar settings
-                initialCalendarFormat: CalendarFormat.month,
-                calendarStyle: CalendarStyle(
-                  todayColor: Colors.pink,
-                  selectedColor: Colors.lightBlueAccent,
-                  todayStyle: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18.0,
-                    color: Colors.white
-                  ),
-                  highlightToday: true
-                ),
-                headerStyle: HeaderStyle( //header (date stuff)
-                  centerHeaderTitle: true,
-                  formatButtonDecoration: BoxDecoration(
-                    color: Colors.pink,
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  formatButtonTextStyle: TextStyle(
-                    color: Colors.white
-                  ),
-                  formatButtonShowsNext: false,
-                ),
-                //config
-                startingDayOfWeek: StartingDayOfWeek.monday,
-                //builders
-                builders: CalendarBuilders(
+      String currentMonth;
+      String yesyes;
+            return Scaffold(
+              appBar: AppBar(
+                backgroundColor: Colors.lightBlueAccent,
+                title: Text('Flutter Calendar'),
+              ),
+              body: SingleChildScrollView(//scroll
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    TableCalendar( //calendar settings
+                      initialCalendarFormat: CalendarFormat.month,
+                      calendarStyle: CalendarStyle(
+                        todayColor: Colors.pink,
+                        selectedColor: Colors.lightBlueAccent,
+                        todayStyle: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18.0,
+                          color: Colors.white
+                        ),
+                        highlightToday: true
+                      ),
+                      headerStyle: HeaderStyle( //header (date stuff)
+                        centerHeaderTitle: true,
+                        formatButtonDecoration: BoxDecoration(
+                          color: Colors.pink,
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        formatButtonTextStyle: TextStyle(
+                          color: Colors.white
+                        ),
+                        formatButtonShowsNext: false,
+                      ),
+                      //config,
+                      startingDayOfWeek: StartingDayOfWeek.monday,
+                      //builders
+                      builders: CalendarBuilders(
                   //change the selected day look
                   todayDayBuilder: (context, date, events) => 
                   Container(
@@ -93,7 +99,7 @@ class _CalendarPageState extends State<CalendarPage> {
                         color: Colors.white
                     ))
                   ),
-
+                  
                   selectedDayBuilder: (context, date, events) => 
                   Container(
                     alignment: Alignment.center,
@@ -112,7 +118,7 @@ class _CalendarPageState extends State<CalendarPage> {
 
                 calendarController: _controller, //actual calendar
               ),
-              ...ok.map((text) => ListTile(
+              ...filterDay(memories).map((text) => ListTile(
                 title: Text(text),
               ))
             ],
@@ -120,6 +126,12 @@ class _CalendarPageState extends State<CalendarPage> {
         ),
       );
     }
-  
-    _CalendarPageState() {}
+
+    List<String> filterDay(List<Memory> memoryList) {
+      //actually need to do the filtering now
+      List<String> list = memoryList.map((memory) => memory.getText()).toList(); 
+      return list;
+    }
+
+    _CalendarPageState();
 }
