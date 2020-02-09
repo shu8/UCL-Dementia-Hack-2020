@@ -19,7 +19,7 @@ class MemoriesMediaPage extends StatelessWidget {
                   alignment: Alignment.topLeft,
                   child: Panel(
                     title: 'Add photos and videos',
-                    // height: 150.0,
+                    height: 75,
                     icon: Icons.photo,
                     description: '',
                     color: Colors.green,
@@ -30,7 +30,7 @@ class MemoriesMediaPage extends StatelessWidget {
                   child: Panel(
                     title: 'Add Audio',
                     icon: Icons.keyboard_voice,
-                    // height: 160.0,
+                    height: 75,
                     description: '',
                     color: Colors.red[200],
                     clickHandler: () => {print('TODO')}, // TODO moveScreen
