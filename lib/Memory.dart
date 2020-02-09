@@ -10,6 +10,7 @@ class Memory {
         category: json["category"],
         text: json["text"],
         timestamp: json["timestamp"],
+        media: json["media"] == null ? List() : json["media"].split(','),
       );
 
   int getCategory() {
