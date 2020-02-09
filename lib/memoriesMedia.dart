@@ -10,7 +10,7 @@ class MemoriesMediaPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Add media for memories'),
+          title: Text('Add media'),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -18,22 +18,12 @@ class MemoriesMediaPage extends StatelessWidget {
               Align(
                   alignment: Alignment.topLeft,
                   child: Panel(
-                    title: 'Add Photos',
+                    title: 'Add photos and videos',
                     // height: 150.0,
                     icon: Icons.photo,
                     description: '',
                     color: Colors.green,
                     clickHandler: () => moveScreen(context, () => AddPhoto()),
-                  )),
-              Align(
-                  alignment: Alignment.topLeft,
-                  child: Panel(
-                    title: 'Add Video',
-                    // height: 160.0,
-                    icon: Icons.videocam,
-                    description: '',
-                    color: Colors.orange,
-                    clickHandler: () => {print('TODO')}, // TODO moveScreen
                   )),
               Align(
                   alignment: Alignment.topLeft,
