@@ -33,6 +33,6 @@ class Memory {
   }
 
   int getNumOfMemories() {
-    return media.length;
+    return 1;
   }
 }
