@@ -1,3 +1,4 @@
+import 'package:dementia_hack/components/addAudio.dart';
 import 'package:dementia_hack/components/addPhoto.dart';
 import 'package:dementia_hack/components/panel.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ class MemoriesMediaPage extends StatelessWidget {
                     height: 75,
                     description: '',
                     color: Colors.red[200],
-                    clickHandler: () => {print('TODO')}, // TODO moveScreen
+                    clickHandler: () => moveScreen(context, () => AddAudio()),
                   )),
             ],
           ),
