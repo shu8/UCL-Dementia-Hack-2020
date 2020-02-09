@@ -1,6 +1,6 @@
 import 'package:dementia_hack/calendar.dart';
 import 'package:dementia_hack/memoriesInitial.dart';
-import 'package:dementia_hack/quiz.dart';
+import 'package:dementia_hack/quizmenu.dart';
 import 'package:flutter/material.dart';
 import 'package:dementia_hack/common.dart';
 import 'package:dementia_hack/activity.dart';
@@ -48,7 +48,7 @@ class HomePage extends StatelessWidget {
                   icon: Icons.question_answer,
                   description: 'Answer questions on your past',
                   color: Colors.deepOrange,
-                  clickHandler: () => moveScreen(ctxt, () => Quiz()),
+                  clickHandler: () => moveScreen(ctxt, () => TriviaMenu()),
                 )),
             Align(
                 alignment: Alignment.bottomRight,

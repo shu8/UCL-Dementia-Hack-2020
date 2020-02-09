@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
 import 'common.dart';
+import 'Question.dart';
+
+class QuestionBank {
+  var list = [];
+  QuestionBank({ this.list });
+
+  void addQuestion(int questionnumber,String text,String answer)
+  {
+    Question question = Question(questionNumber: questionnumber,questionText:text,questionAnswer:answer);
+    list.add(question);
+  } 
+
+}
 
 class Quiz extends StatelessWidget {
   @override
   Widget build(context) {
-    return MaterialApp(
-      title: 'Trivia',
-      theme: ThemeData(
-        primarySwatch: MaterialColor(0xFFFF5722, color)),
-      home: Scaffold(
+    return 
+      Scaffold(
           appBar: AppBar(
             title: Text('Trivia'),
           ),
@@ -53,10 +63,7 @@ class Quiz extends StatelessWidget {
             ]
             )
           // ]
-          )
-          
-          )
-          
+          )          
     );
   }
 }

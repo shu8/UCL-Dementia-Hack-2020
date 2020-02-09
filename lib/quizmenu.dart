@@ -3,26 +3,13 @@ import 'common.dart';
 import 'package:dementia_hack/components/panel.dart';
 import 'quiz.dart';
 
-
-class MyApp extends StatelessWidget {
-  MyApp() : super();
-  @override
-  Widget build(BuildContext context){
-    return MaterialApp(
-      title: "TriviaMenu",
-      theme: ThemeData(
-        primarySwatch: MaterialColor(0xFFFF5722, color)),
-      home: TriviaMenu()
-    );
-  }
-}
-
 class TriviaMenu extends StatelessWidget{
+  TriviaMenu() : super();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Activities"),
+        title: Text("Trivia Menu"),
       ),
       body: Column(
         children: <Widget>[
