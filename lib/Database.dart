@@ -16,20 +16,25 @@ class DBProvider {
     await _database.execute(
         'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (2, 1579836800000, 0, "Did not feel very well today.");');
     await _database.execute(
-        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (3, 1581238214000, 2, "Made my own dinner for the first time in a while!")');
+        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (3, 1579091232000, 2, "Made my own dinner for the first time in a while!")');
     await _database.execute(
         'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (4, 1577881632000, 0, "Pretty boring day")');
     await _database.execute(
-        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (5, 1581248214000, 3, "Tried origami today! I thought it was very cool.")');
+        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (5, 1578745632000, 3, "Tried origami today! I thought it was very cool.")');
     await _database.execute(
-        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (6, 1581258214000, 1, "Went for a walk in the park nearby today.")');
+        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (6, 1579091232000, 1, "Went for a walk in the park nearby today.")');
     await _database.execute(
         'INSERT OR IGNORE INTO media (id, memory_id, path) VALUES(1, 1, "path1");');
     await _database.execute(
-        'INSERT OR IGNORE INTO media (id, memory_id, path) VALUES(2, 1, "path2");');
+        'INSERT OR IGNORE INTO media (id, memory_id, path) VALUES(2, 2, "path2");');
     await _database.execute(
-        'INSERT OR IGNORE INTO media (id, memory_id, path) VALUES(3, 1, "path1");');
-
+        'INSERT OR IGNORE INTO media (id, memory_id, path) VALUES(3, 3, "path1");');
+    await _database.execute(
+        'INSERT OR IGNORE INTO media (id, memory_id, path) VALUES(4, 4, "path1");');
+    await _database.execute(
+        'INSERT OR IGNORE INTO media (id, memory_id, path) VALUES(5, 5, "path1");');
+    await _database.execute(
+        'INSERT OR IGNORE INTO media (id, memory_id, path) VALUES(6, 6, "path1");');
     return _database;
   }
 
