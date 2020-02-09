@@ -34,7 +34,7 @@ class DBProvider {
         timestamp INTEGER NOT NULL,
         category INTEGER NOT NULL,
         text TEXT
-      );;''');
+      );''');
 
       await db.execute('''CREATE TABLE IF NOT EXISTS moods (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -77,6 +77,20 @@ class DBProvider {
     return response;
   }
 
-  addNewMemory(int timestamp, String text) {}
-  addNewMedia(int memoryId, String path) {}
+  addNewMemory({int timestamp, String text, int category}) async {
+    final db = await database;
+    var response = db.insert('memories',
+        {'timestamp': timestamp, 'text': text, 'category': category},
+        conflictAlgorithm: ConflictAlgorithm.ignore);
+    print(response);
+    return response;
+  }
+
+  addNewMedia({int memoryId, String path}) async {
+    final db = await database;
+    var response = db.insert('media', {'memory_id': memoryId, 'path': 'path'},
+        conflictAlgorithm: ConflictAlgorithm.ignore);
+    print(response);
+    return response;
+  }
 }

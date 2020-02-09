@@ -7,8 +7,9 @@ import 'common.dart';
 class MemoriesMediaPage extends StatelessWidget {
   final String mood;
   final String textEntered;
+  final int memoryId;
 
-  MemoriesMediaPage({this.mood, this.textEntered}) : super();
+  MemoriesMediaPage({this.mood, this.textEntered, this.memoryId}) : super();
 
   @override
   Widget build(BuildContext context) {

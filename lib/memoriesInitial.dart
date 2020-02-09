@@ -1,3 +1,4 @@
+import 'package:dementia_hack/Database.dart';
 import 'package:dementia_hack/common.dart';
 import 'package:dementia_hack/memoriesMedia.dart';
 import 'package:flutter/material.dart';
@@ -13,12 +14,18 @@ class _MemoriesInitialPageState extends State<MemoriesInitialPage> {
   String chosenMood;
   String textEntered;
 
-  handleNextTransition() {
-    // TODO create new memory in db with chosenMood and textEntered, pass new Id to MemoriesMediaPage
+  handleNextTransition() async {
+    var memoryId = await DBProvider.db.addNewMemory(
+        category: 0, // a custom entry
+        text: textEntered,
+        timestamp: new DateTime.now().millisecondsSinceEpoch);
+
     moveScreen(
         context,
         () => MemoriesMediaPage(
-            mood: this.chosenMood, textEntered: this.textEntered));
+            mood: this.chosenMood,
+            textEntered: this.textEntered,
+            memoryId: memoryId));
   }
 
   @override
@@ -86,8 +93,8 @@ class _MemoriesInitialPageState extends State<MemoriesInitialPage> {
                         this.textEntered = text;
                       })),
               FlatButton(
-                  onPressed: () =>
-                      handleNextTransition(), // TODO send to db and also pass new memory ID
+                  onPressed: () async =>
+                      await handleNextTransition(), // TODO send to db and also pass new memory ID
                   color: MaterialColor(0xFF00008B, color),
                   child: Text('Next', style: TextStyle(color: Colors.white))),
             ],

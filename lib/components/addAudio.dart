@@ -1,14 +1,12 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:dementia_hack/Database.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:uuid/uuid.dart';
-import 'package:dementia_hack/quiz.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:path/path.dart' as path;
-
-import 'dart:async';
 import 'package:flutter_sound/flutter_sound.dart';
 
 class AudioRecorder extends StatefulWidget {
@@ -17,6 +15,10 @@ class AudioRecorder extends StatefulWidget {
 }
 
 class _AudioRecorderState extends State<AudioRecorder> {
+  int memoryId;
+
+  _AudioRecorderState({this.memoryId});
+
   bool _isRecording = false;
   bool _isPlaying = false;
   String _path;
@@ -89,8 +91,6 @@ class _AudioRecorderState extends State<AudioRecorder> {
       final File copiedAudio =
           await new File(this._path).copy('$newPath/$newFileName');
 
-      print(copiedAudio.path);
-
       if (_recorderSubscription != null) {
         _recorderSubscription.cancel();
         _recorderSubscription = null;
@@ -103,6 +103,11 @@ class _AudioRecorderState extends State<AudioRecorder> {
       this.setState(() {
         this._isRecording = false;
       });
+
+      print(copiedAudio.path);
+      print('image path: ${copiedAudio.path}');
+      await DBProvider.db
+          .addNewMedia(memoryId: memoryId, path: copiedAudio.path);
     } catch (err) {
       print('stopRecorder error: $err');
     }

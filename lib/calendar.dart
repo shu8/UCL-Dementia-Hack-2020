@@ -10,22 +10,22 @@ import 'Memory.dart';
 Memory test1 = Memory(
     category: 2,
     text: "Baked a cake today.",
-    date: 1577846800000,
+    timestamp: 1577846800000,
     media: [1, 34, 5, 6, 3, 4, 4]);
 Memory test2 = Memory(
     category: 1,
     text: "Walked around the park.",
-    date: 1577846800000,
+    timestamp: 1577846800000,
     media: [1, 4, 6, 3, 6, 8, 3]);
 Memory test3 = Memory(
     category: 3,
     text: "Knitted a nice scarf.",
-    date: 1577846800000,
+    timestamp: 1577846800000,
     media: [1, 3]);
 Memory test4 = Memory(
     category: 4,
     text: "Played around with nephews and nieces.",
-    date: 1577846800000,
+    timestamp: 1577846800000,
     media: [1, 3, 4]);
 
 List<Memory> memories = [test1, test2, test3, test4];
