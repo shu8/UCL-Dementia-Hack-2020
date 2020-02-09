@@ -1,10 +1,16 @@
 class Memory {
   final int category;
   final String text;
-  final String date;
+  final int timestamp;
   final List media;
 
-  Memory({this.category, this.text, this.date, this.media});
+  Memory({this.category, this.text, this.timestamp, this.media});
+
+  factory Memory.fromMap(Map<String, dynamic> json) => new Memory(
+        category: json["category"],
+        text: json["text"],
+        timestamp: json["timestamp"],
+      );
 
   int getCategory() {
     return category;
@@ -14,8 +20,8 @@ class Memory {
     return text;
   }
 
-  String getDate() {
-    return date; //maybe datetime?
+  int getDate() {
+    return timestamp; //maybe datetime?
   }
 
   List getMedia() {

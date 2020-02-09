@@ -6,6 +6,8 @@ import 'package:dementia_hack/home.dart';
 
 import 'package:flutter/services.dart';
 
+import 'Database.dart';
+
 // TODO persistently store this
 const ONBOARDING_COMPLETE = false;
 
@@ -41,6 +43,7 @@ class OnboardingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext ctxt) {
+    print(DBProvider.db.getAllMemories());
     return new Scaffold(
       appBar: new AppBar(
         title: new Text(this.title),
