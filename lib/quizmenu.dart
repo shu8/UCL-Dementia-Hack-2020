@@ -9,14 +9,17 @@ class TriviaMenu extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.deepOrange,
         title: Text("Trivia Menu"),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Align(
               alignment: Alignment.topLeft,
               child: Panel(
                 title: 'Easy',
+                height: 160,
                 /***icon: ***/
                 description: '',
                 color: Colors.green,
@@ -26,6 +29,7 @@ class TriviaMenu extends StatelessWidget{
               alignment: Alignment.topLeft,
               child: Panel(
                 title: 'Medium',
+                height: 160,
                 /***icon: ***/
                 description: '',
                 color: Colors.orange,
@@ -35,6 +39,7 @@ class TriviaMenu extends StatelessWidget{
               alignment: Alignment.topLeft,
               child: Panel(
                 title: 'Hard',
+                height: 160,
                 /***icon: ***/
                 description: '',
                 color: Colors.red[200],
