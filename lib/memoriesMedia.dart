@@ -5,7 +5,10 @@ import 'package:flutter/material.dart';
 import 'common.dart';
 
 class MemoriesMediaPage extends StatelessWidget {
-  MemoriesMediaPage() : super();
+  final String mood;
+  final String textEntered;
+
+  MemoriesMediaPage({this.mood, this.textEntered}) : super();
 
   @override
   Widget build(BuildContext context) {

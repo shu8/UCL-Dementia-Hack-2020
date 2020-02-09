@@ -56,7 +56,9 @@ class DBProvider {
     return Sqflite.firstIntValue(response);
   }
 
-  addNewMemory(int timestamp, String text) {}
+  addNewMemory(int timestamp, String text) {
+    
+  }
 
   addNewMedia(int memoryId, String path) {}
 }

@@ -11,6 +11,15 @@ class MemoriesInitialPage extends StatefulWidget {
 
 class _MemoriesInitialPageState extends State<MemoriesInitialPage> {
   String chosenMood;
+  String textEntered;
+
+  handleNextTransition() {
+    // TODO create new memory in db with chosenMood and textEntered, pass new Id to MemoriesMediaPage
+    moveScreen(
+        context,
+        () => MemoriesMediaPage(
+            mood: this.chosenMood, textEntered: this.textEntered));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -73,10 +82,12 @@ class _MemoriesInitialPageState extends State<MemoriesInitialPage> {
                     labelText: 'Memory',
                     hintText: 'How are you feeling? How was your day?',
                   ),
-                  onChanged: (text) => print(text)),
+                  onChanged: (text) => setState(() {
+                        this.textEntered = text;
+                      })),
               FlatButton(
                   onPressed: () =>
-                      {moveScreen(context, () => MemoriesMediaPage())},
+                      handleNextTransition(), // TODO send to db and also pass new memory ID
                   color: MaterialColor(0xFF00008B, color),
                   child: Text('Next', style: TextStyle(color: Colors.white))),
             ],
