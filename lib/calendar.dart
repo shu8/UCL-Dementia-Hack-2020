@@ -19,6 +19,7 @@ class _CalendarPageState extends State<CalendarPage> {
   CalendarController _controller;
   Map<String, int> numOfMemForDay;
   List<Memory> memories;
+  List<Memory> dayMemories = List<Memory>();
 
   @override
   void initState() {
@@ -44,6 +45,7 @@ class _CalendarPageState extends State<CalendarPage> {
 
   @override
   Widget build(BuildContext context) {
+    String currentSelectedDay = "";
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.lightBlueAccent,
@@ -79,39 +81,49 @@ class _CalendarPageState extends State<CalendarPage> {
               startingDayOfWeek: StartingDayOfWeek.monday,
               //builders
               builders: CalendarBuilders(
-                //change the selected day look
-                todayDayBuilder: (context, date, events) => Container(
-                    alignment: Alignment.center,
-                    margin: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                        color: Colors.pinkAccent,
-                        borderRadius: BorderRadius.circular(10.0)),
-                    child: Text(date.day.toString(),
-                        style: TextStyle(color: Colors.white))),
-                dayBuilder: (context, date, events) => Container(
-                    alignment: Alignment.center,
-                    margin: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                        color: colorDay(date),
-                        borderRadius: BorderRadius.circular(10.0)),
-                    child: Text(date.day.toString(),
-                        style: TextStyle(
-                          color: colorText(date.day),
-                        ))),
-                selectedDayBuilder: (context, date, events) => Container(
-                    alignment: Alignment.center,
-                    margin: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                        color: Colors.lightBlueAccent,
-                        borderRadius: BorderRadius.circular(10.0)),
-                    child: Text(date.day.toString(),
-                        style: TextStyle(
+                  //change the selected day look
+                  todayDayBuilder: (context, date, events) => Container(
+                      alignment: Alignment.center,
+                      margin: const EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                          color: Colors.pinkAccent,
+                          borderRadius: BorderRadius.circular(10.0)),
+                      child: Text(date.day.toString(),
+                          style: TextStyle(color: Colors.white))),
+                  dayBuilder: (context, date, events) => Container(
+                      alignment: Alignment.center,
+                      margin: const EdgeInsets.all(5),
+                      decoration: BoxDecoration(
                           color: colorDay(date),
-                        ))),
-              ),
+                          borderRadius: BorderRadius.circular(10.0)),
+                      child: Text(date.day.toString(),
+                          style: TextStyle(
+                            color: colorText(date.day),
+                          ))),
+                  selectedDayBuilder: (context, date, events) =>
+                      GestureDetector(
+                        onTap: () => filterDay(date),
+                        child: Container(
+                            alignment: Alignment.center,
+                            margin: const EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                                color: Colors.lightBlueAccent,
+                                borderRadius: BorderRadius.circular(10.0)),
+                            child: Text(date.day.toString(),
+                                style: TextStyle(
+                                  color: colorDay(date),
+                                ))),
+                      )),
               calendarController: _controller, //actual calendar
             ),
-            ...memories.map((memory) => Panel(
+            ListTile(
+              title: Text(
+                "Events",
+                textAlign: TextAlign.center,
+                textScaleFactor: 1.4,
+              ),
+            ),
+            ...dayMemories.map((memory) => Panel(
                   clickHandler: () =>
                       moveScreen(context, () => ViewMemory(memory: memory)),
                   title: mapTitle(memory.getCategory()),
@@ -229,11 +241,11 @@ class _CalendarPageState extends State<CalendarPage> {
   Color colorDay(DateTime day) {
     int green = min(255, 3 * 10);
     String ymd = day.toString().substring(0, day.toString().indexOf(' '));
-    print("testing: $numOfMemForDay");
+    //print("testing: $numOfMemForDay");
     if (numOfMemForDay.containsKey(ymd)) {
-      print("contains key!");
+      //print("contains key!");
       int green = min(10 * numOfMemForDay[ymd], 255);
-      print("green: $green");
+      //print("green: $green");
       return Color.fromARGB(255, 255 - (green * 10), 255, 255 - (green * 10));
     }
     return Color.fromARGB(255, 255, 255, 255);
@@ -244,10 +256,21 @@ class _CalendarPageState extends State<CalendarPage> {
     return Color.fromARGB(255, 0, 0, 0);
   }
 
-  List<String> filterDay(List<Memory> memoryList) {
+  void filterDay(DateTime day) {
     //actually need to do the filtering now
-    List<String> list = memoryList.map((memory) => memory.getText()).toList();
-    return list;
+    List<Memory> temp = List<Memory>();
+    String ymd = day.toString().substring(0, day.toString().indexOf(' '));
+    for (Memory memory in memories) {
+      if (ymd == memory.getDate()) {
+        print("added: $memory");
+        temp.add(memory);
+      }
+      //print("OK: " + date2.toString());
+
+      this.setState(() {
+        this.dayMemories = List<Memory>.from(temp);
+      });
+    }
   }
 
   _CalendarPageState();
