@@ -12,11 +12,11 @@ class DBProvider {
     if (_database != null) return _database;
     _database = await getDatabaseInstance();
     await _database.execute(
-        'INSERT INTO memories (id, timestamp, category, text) VALUES (1, 1779836800000, 3, "TEST3");');
+        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (1, 1779836800000, 3, "TEST3");');
     await _database.execute(
-        'INSERT INTO memories (id, timestamp, category, text) VALUES (2, 1579836800000, 2, "TEST2");');
+        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (2, 1579836800000, 2, "TEST2");');
     await _database.execute(
-        'INSERT INTO memories (id, timestamp, category, text) VALUES (3, 1779836800000, 3, "TEST3")');
+        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (3, 1779836800000, 3, "TEST3")');
     await _database.execute(
         'INSERT OR IGNORE INTO media (memory_id, path) VALUES(1, "path1");');
     await _database.execute(
