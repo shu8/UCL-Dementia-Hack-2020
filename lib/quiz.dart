@@ -5,18 +5,19 @@ import 'Question.dart';
 
 class QuestionBank {
   List questions = [];
-  QuestionBank({ this.questions });
+  QuestionBank({this.questions});
 
-  void addQuestion(int questionnumber,String text,String answer)
-  {
-    Question question = new Question(questionNumber: questionnumber,questionText:text,questionAnswer:answer);
+  void addQuestion(int questionnumber, String text, String answer) {
+    Question question = new Question(
+        questionNumber: questionnumber,
+        questionText: text,
+        questionAnswer: answer);
     questions.add(question);
   }
-  List getQuestions()
-  {
+
+  List getQuestions() {
     return questions;
   }
-
 }
 
 // class Quiz extends StatelessWidget{
@@ -33,16 +34,15 @@ class Quiz extends StatefulWidget {
 
 class _QuizState extends State<Quiz> {
   @override
-
-  void showAnswer(QuestionBank bank,int index)
-  {
+  void showAnswer(QuestionBank bank, int index) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         // return object of type Dialog
         return AlertDialog(
           title: new Text("Answer"),
-          content: new Text(bank.getQuestions().elementAt(index).getQuestionAnswer()),
+          content: new Text(
+              bank.getQuestions().elementAt(index).getQuestionAnswer()),
           actions: <Widget>[
             // usually buttons at the bottom of the dialog
             new FlatButton(
@@ -58,70 +58,64 @@ class _QuizState extends State<Quiz> {
   }
 
   Widget build(context) {
-    QuestionBank bank = new QuestionBank(questions:[]);
-    bank.addQuestion(1,'What did you do today?', 'Reading');
+    QuestionBank bank = new QuestionBank(questions: []);
+    bank.addQuestion(1, 'What did you do today?', 'Reading');
     bank.addQuestion(2, 'How was your day?', 'Good');
     bank.addQuestion(3, 'What did you have for lunch?', 'Pasta');
-    return
-      Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.deepOrange,
-            title: Text('Trivia'),
-          ),
-          body:
-          ListView.builder(
+    return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.deepOrange,
+          title: Text('Trivia'),
+        ),
+        body: ListView.builder(
             itemCount: bank.getQuestions().length,
-            itemBuilder: (context,index){
-
-            return Center(
-            child:Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                width: 415,
-                height: 100,
-                color: Colors.amber[600],
-                child:Text(
-                'Question '+ bank.getQuestions().elementAt(index).getQuestionNumber().toString(),
-                textScaleFactor: 5,
-              ),
-              ),
-              Container(
-                width: 415,
-                height: 100,
-                color: Colors.amber[600],
-                child:Text(
-                bank.getQuestions().elementAt(index).getQuestionText(),
-                // 'test',
-                textScaleFactor: 2,
-                ),
-              ),
-
-              Container(
-                width: 415,
-                height: 80,
-                color: Colors.amber[600],
-              child:TextField(
-                style: TextStyle(fontSize: 20,color: Colors.black),
-                decoration: InputDecoration(
-                labelText: 'Enter answer',
-                ),
-              )
-              ),
-              Center(
-                child:Panel(
-                title: "Show answer",
-                /***icon: ***/
-                description: '',
-                color: Colors.orange,
-                clickHandler: ()=> showAnswer(bank,index),
-                )
-              )
-            ]
-            )
-          // ]
-          );
-            }
-      )
-    );
+            itemBuilder: (context, index) {
+              return Center(
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                    Align(
+                        alignment: Alignment.topLeft,
+                        child: Panel(
+                          title: 'Question ' +
+                              bank
+                                  .getQuestions()
+                                  .elementAt(index)
+                                  .getQuestionNumber()
+                                  .toString(),
+                          height: 160,
+                          icon: Icons.question_answer,
+                          description: bank
+                              .getQuestions()
+                              .elementAt(index)
+                              .getQuestionText(),
+                          color: Colors.blue[400],
+                          clickHandler: () => {},
+                        )),
+                    Container(
+                        width: 415,
+                        height: 80,
+                        color: Colors.amber[600],
+                        child: TextField(
+                          style: TextStyle(fontSize: 20, color: Colors.black),
+                          decoration: InputDecoration(
+                            labelText: 'Enter answer',
+                          ),
+                        )),
+                    Center(
+                        child: Panel(
+                      title: 'Show answer',
+                      /***icon: ***/
+                      description: '',
+                      color: Colors.orange,
+                      clickHandler: () => setState(() {
+                        title:
+                        'Swda';
+                      }),
+                    ))
+                  ])
+                  // ]
+                  );
+            }));
   }
 }
