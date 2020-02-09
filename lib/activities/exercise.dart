@@ -9,51 +9,48 @@ class ExercisePage extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
         appBar: AppBar(
-      title: Text("Exercises"),
-    ));
-       body: SingleChildScrollView(
-          child: Column(
+          title: Text("Exercises"),
+          backgroundColor: Colors.green[600],
+        ),
+        body: SingleChildScrollView(
+            child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Align(
                 alignment: Alignment.topLeft,
                 child: Panel(
-                  title: 'Add memories',
+                  title: 'Marthons',
                   height: 160,
-                  icon: Icons.add_a_photo,
-                  description: 'Add a memory for today',
-                  color: Colors.purple,
-                  clickHandler: () =>
-                      moveScreen(ctxt, () => MemoriesInitialPage()),
+                  icon: Icons.directions_run,
+                  description: "If you're up for it...join the marthon!",
+                  color: Colors.green[300],
                 )),
             Align(
                 alignment: Alignment.topRight,
                 child: Panel(
-                  title: 'Calendar',
+                  title: 'Play tennis',
                   height: 160,
-                  icon: Icons.calendar_today,
-                  description: 'View your moods over time',
-                  color: Colors.blue,
-                  clickHandler: () => moveScreen(ctxt, () => CalendarPage()),
+                  icon: Icons.directions_run,
+                  description: 'Play in nearby tennis courts',
+                  color: Colors.green[400],
                 )),
             Align(
                 alignment: Alignment.bottomLeft,
                 child: Panel(
-                  title: 'Rewind',
+                  title: 'Take a walk ',
                   height: 160,
-                  icon: Icons.question_answer,
-                  description: 'Answer questions on your past',
-                  color: Colors.deepOrange,
-                ))
+                  icon: Icons.directions_walk,
+                  description: 'Go on a 15 min walk in the park!',
+                  color: Colors.green[500],
+                )),
             Align(
                 alignment: Alignment.bottomRight,
                 child: Panel(
-                  title: 'Activities',
+                  title: 'Water Polo',
                   height: 160,
-                  icon: Icons.directions_run,
-                  description: 'Choose an activity to do today!',
-                  color: Colors.green,
-                  clickHandler: () => moveScreen(ctxt, () => ActivityPage()),
+                  icon: Icons.pool,
+                  description: "Participate in today's water polo class!",
+                  color: Colors.green[600],
                 )),
           ],
         )));
