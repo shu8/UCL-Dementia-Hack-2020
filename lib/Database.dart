@@ -93,17 +93,18 @@ class DBProvider {
 
   addNewMemory({int timestamp, String text, int category}) async {
     final db = await database;
-    var response = db.insert('memories',
+    var response = await db.insert('memories',
         {'timestamp': timestamp, 'text': text, 'category': category},
-        conflictAlgorithm: ConflictAlgorithm.ignore);
+        conflictAlgorithm: ConflictAlgorithm.replace);
     print(response);
     return response;
   }
 
   addNewMedia({int memoryId, String path}) async {
     final db = await database;
-    var response = db.insert('media', {'memory_id': memoryId, 'path': 'path'},
-        conflictAlgorithm: ConflictAlgorithm.ignore);
+    var response = await db.insert(
+        'media', {'memory_id': memoryId, 'path': 'path'},
+        conflictAlgorithm: ConflictAlgorithm.replace);
     print(response);
     return response;
   }

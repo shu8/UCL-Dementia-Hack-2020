@@ -2,7 +2,7 @@ class Memory {
   final int category;
   final String text;
   final int timestamp;
-  final List media;
+  final List<String> media;
 
   Memory({this.category, this.text, this.timestamp, this.media});
 
@@ -10,7 +10,7 @@ class Memory {
         category: json["category"],
         text: json["text"],
         timestamp: json["timestamp"],
-        media: json["media"] == null ? List() : json["media"].split(','),
+        media: json["media"] == null ? [] : json["media"].split(','),
       );
 
   int getCategory() {

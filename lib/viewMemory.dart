@@ -17,14 +17,19 @@ class _ViewMemoryState extends State<ViewMemory> {
   final Memory memory;
   _ViewMemoryState({this.memory});
 
+  getMedia() {
+    if (this.memory.media == null) return Text(' ');
+    return Column(children: <Widget>[
+      ...this.memory.media.map((m) => Image.file(File(m)))
+    ]);
+  }
+
   @override
   Widget build(BuildContext context) {
     DateTime selectedDate =
         DateTime.fromMillisecondsSinceEpoch(this.memory.timestamp);
 
-    List<String> media = this.memory.media == null ? this.memory.media : List();
-
-    print('viewing memory: ${this.memory.toString()}');
+    print('viewing memory media: ${this.memory.media}');
     print('viewing memory: ${selectedDate.toLocal().toString().split(' ')[0]}');
     return Scaffold(
         appBar: AppBar(
@@ -44,7 +49,7 @@ class _ViewMemoryState extends State<ViewMemory> {
               fontSize: 20,
             ),
           ),
-          ...media.map((m) => Image.file(File(m))),
+          getMedia(),
         ]));
   }
 }
