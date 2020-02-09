@@ -33,6 +33,7 @@ class _MemoriesInitialPageState extends State<MemoriesInitialPage> {
     return Scaffold(
         appBar: AppBar(
           title: Text('Add a memory'),
+          backgroundColor: Colors.purple,
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -95,7 +96,7 @@ class _MemoriesInitialPageState extends State<MemoriesInitialPage> {
               FlatButton(
                   onPressed: () async =>
                       await handleNextTransition(), // TODO send to db and also pass new memory ID
-                  color: MaterialColor(0xFF00008B, color),
+                  color: Colors.purple,
                   child: Text('Next', style: TextStyle(color: Colors.white))),
             ],
           ),

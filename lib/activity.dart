@@ -14,6 +14,7 @@ class ActivityPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text("Activities"),
+          backgroundColor: Colors.green,
         ),
         body: SingleChildScrollView(
           child: Column(
