@@ -1,4 +1,6 @@
+import 'package:dementia_hack/calendar.dart';
 import 'package:dementia_hack/memoriesInitial.dart';
+import 'package:dementia_hack/quiz.dart';
 import 'package:flutter/material.dart';
 import 'package:dementia_hack/common.dart';
 import 'package:dementia_hack/activity.dart';
@@ -36,7 +38,7 @@ class HomePage extends StatelessWidget {
                   icon: Icons.calendar_today,
                   description: 'View your moods over time',
                   color: Colors.blue,
-                  clickHandler: () => print('calendar'), // TODO add calendar
+                  clickHandler: () => moveScreen(ctxt, () => CalendarPage()),
                 )),
             Align(
                 alignment: Alignment.bottomLeft,
@@ -46,8 +48,7 @@ class HomePage extends StatelessWidget {
                   icon: Icons.question_answer,
                   description: 'Answer questions on your past',
                   color: Colors.deepOrange,
-                  clickHandler: () =>
-                      print('rewind quiz'), // TODO add rewind quiz
+                  clickHandler: () => moveScreen(ctxt, () => Quiz()),
                 )),
             Align(
                 alignment: Alignment.bottomRight,
