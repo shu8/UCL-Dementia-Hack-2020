@@ -37,7 +37,8 @@ class MemoriesMediaPage extends StatelessWidget {
                     height: 75,
                     description: '',
                     color: Colors.red[200],
-                    clickHandler: () => moveScreen(context, () => AddAudio()),
+                    clickHandler: () =>
+                        moveScreen(context, () => AudioRecorder()),
                   )),
             ],
           ),
