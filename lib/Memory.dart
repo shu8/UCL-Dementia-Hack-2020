@@ -21,8 +21,11 @@ class Memory {
     return text;
   }
 
-  int getDate() {
-    return timestamp; //maybe datetime?
+  String getDate() {
+    DateTime day = new DateTime.fromMillisecondsSinceEpoch(this.timestamp);
+    String ymd = day.toString().substring(0, day.toString().indexOf(' '));
+    //print("OK: " + date2.toString());
+    return ymd; //maybe datetime?
   }
 
   List getMedia() {
