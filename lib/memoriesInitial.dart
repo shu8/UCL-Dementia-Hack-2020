@@ -94,8 +94,7 @@ class _MemoriesInitialPageState extends State<MemoriesInitialPage> {
                         this.textEntered = text;
                       })),
               FlatButton(
-                  onPressed: () async =>
-                      await handleNextTransition(), // TODO send to db and also pass new memory ID
+                  onPressed: () async => await handleNextTransition(),
                   color: Colors.purple,
                   child: Text('Next', style: TextStyle(color: Colors.white))),
             ],

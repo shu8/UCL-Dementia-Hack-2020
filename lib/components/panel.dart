@@ -8,15 +8,15 @@ class Panel extends StatelessWidget {
   final Function clickHandler;
   final double height;
 
-  Panel(
-      {Key key,
-      this.title,
-      this.description,
-      this.icon,
-      this.color,
-      this.height,
-      this.clickHandler})
-      : super(key: key);
+  Panel({
+    Key key,
+    this.title,
+    this.description,
+    this.icon,
+    this.color,
+    this.height,
+    this.clickHandler,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -51,16 +51,10 @@ class Panel extends StatelessWidget {
                         color: Colors.white70,
                         fontWeight: FontWeight.bold),
                   ),
-                  // new SizedBox(
-                  //   height: 8.0,
-                  // ),
                   new Text(
                     this.description,
                     style: new TextStyle(fontSize: 12.0, color: Colors.white70),
                   ),
-                  // new SizedBox(
-                  //   height: 8.0,
-                  // ),
                 ],
               )),
             ],

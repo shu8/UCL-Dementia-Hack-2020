@@ -1,6 +1,8 @@
 import 'dart:math';
 
 import 'package:dementia_hack/Database.dart';
+import 'package:dementia_hack/common.dart';
+import 'package:dementia_hack/viewMemory.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -110,6 +112,8 @@ class _CalendarPageState extends State<CalendarPage> {
               calendarController: _controller, //actual calendar
             ),
             ...memories.map((memory) => Panel(
+                  clickHandler: () =>
+                      moveScreen(context, () => ViewMemory(memory: memory)),
                   title: mapTitle(memory.getCategory()),
                   height: 60,
                   icon: mapIcon(memory.getCategory()),

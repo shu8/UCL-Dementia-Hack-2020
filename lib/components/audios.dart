@@ -77,12 +77,9 @@ class FlutterSound {
   /// Returns true if the flutter_ffmpeg plugin is really plugged
   Future<bool> isFFmpegSupported() async {
     try {
-      final Map<dynamic, dynamic> vers =
-          await _FFmpegChannel.invokeMethod('getFFmpegVersion');
-      final Map<dynamic, dynamic> platform =
-          await _FFmpegChannel.invokeMethod('getPlatform');
-      final Map<dynamic, dynamic> packageName =
-          await _FFmpegChannel.invokeMethod('getPackageName');
+      await _FFmpegChannel.invokeMethod('getFFmpegVersion');
+      await _FFmpegChannel.invokeMethod('getPlatform');
+      await _FFmpegChannel.invokeMethod('getPackageName');
       return true;
     } catch (e) {
       return false;
@@ -438,7 +435,6 @@ class FlutterSound {
       _audioState = t_AUDIO_STATE
           .IS_STOPPED; // In fact _audioState is in an unknown state
       throw Exception(err);
-      ;
     }
   }
 
@@ -467,7 +463,6 @@ class FlutterSound {
     } catch (err) {
       print('err: $err');
       throw Exception(err);
-      ;
     }
   }
 
