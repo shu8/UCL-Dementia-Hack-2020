@@ -35,6 +35,29 @@ class Quiz extends StatefulWidget {
 class _QuizState extends State<Quiz> {
   @override
 
+  void showAnswer(QuestionBank bank,int index)
+  {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        // return object of type Dialog
+        return AlertDialog(
+          title: new Text("Answer"),
+          content: new Text(bank.getQuestions().elementAt(index).getQuestionAnswer()),
+          actions: <Widget>[
+            // usually buttons at the bottom of the dialog
+            new FlatButton(
+              child: new Text("Close"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   Widget build(context) {
     QuestionBank bank = new QuestionBank(questions:[]);
     bank.addQuestion(1,'What did you do today?', 'Reading');
@@ -87,11 +110,11 @@ class _QuizState extends State<Quiz> {
               ),
               Center(
                 child:Panel(
-                title: 'Show answer',
+                title: "Show answer",
                 /***icon: ***/
                 description: '',
                 color: Colors.orange,
-                clickHandler: ()=> setState((){title: 'Swda';}),
+                clickHandler: ()=> showAnswer(bank,index),
                 )
               )
             ]
