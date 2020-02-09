@@ -1,7 +1,6 @@
 import 'package:dementia_hack/components/panel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'common.dart';
 import 'Question.dart';
 
 class QuestionBank {
@@ -12,7 +11,7 @@ class QuestionBank {
   {
     Question question = new Question(questionNumber: questionnumber,questionText:text,questionAnswer:answer);
     questions.add(question);
-  } 
+  }
   List getQuestions()
   {
     return questions;
@@ -63,19 +62,19 @@ class _QuizState extends State<Quiz> {
     bank.addQuestion(1,'What did you do today?', 'Reading');
     bank.addQuestion(2, 'How was your day?', 'Good');
     bank.addQuestion(3, 'What did you have for lunch?', 'Pasta');
-    return 
+    return
       Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.deepOrange,
             title: Text('Trivia'),
           ),
-          body: 
+          body:
           ListView.builder(
             itemCount: bank.getQuestions().length,
             itemBuilder: (context,index){
 
             return Center(
-            child:Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, 
+            child:Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
                 width: 415,
@@ -96,7 +95,7 @@ class _QuizState extends State<Quiz> {
                 textScaleFactor: 2,
                 ),
               ),
-            
+
               Container(
                 width: 415,
                 height: 80,
@@ -120,9 +119,9 @@ class _QuizState extends State<Quiz> {
             ]
             )
           // ]
-          );   
+          );
             }
-      ) 
+      )
     );
   }
 }

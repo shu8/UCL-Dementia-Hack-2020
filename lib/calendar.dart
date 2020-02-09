@@ -47,7 +47,7 @@ class _CalendarPageState extends State<CalendarPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.lightBlueAccent,
-        title: Text('Flutter Calendar'),
+        title: Text('Your calendar'),
       ),
       body: SingleChildScrollView(
         //scroll
