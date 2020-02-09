@@ -12,23 +12,17 @@ class DBProvider {
     if (_database != null) return _database;
     _database = await getDatabaseInstance();
     await _database.execute(
-        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (1, 1579609632000, 3, "TEST3");');
+        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (1, 1579609632000, 4, "Great! Visited my children after a few weeks.");');
     await _database.execute(
-        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (2, 1579836800000, 2, "TEST2");');
+        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (2, 1579836800000, 0, "Did not feel very well today.");');
     await _database.execute(
-        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (3, 1779836800000, 3, "TEST3")');
+        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (3, 1581238214000, 2, "Made my own dinner for the first time in a while!")');
     await _database.execute(
-        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (4, 1577881632000, 4, "TEST4")');
+        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (4, 1577881632000, 0, "Pretty boring day")');
     await _database.execute(
-        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (5, 1578659232000, 3, "TEST5")');
+        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (5, 1581248214000, 3, "Tried origami today! I thought it was very cool.")');
     await _database.execute(
-        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (6, 1579004832000, 3, "TEST6")');
-    await _database.execute(
-        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (7, 1579091232000, 3, "TEST7")');
-    await _database.execute(
-        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (8, 1579177632000, 3, "TEST8")');
-    await _database.execute(
-        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (9, 1779836800000, 3, "TEST9")');
+        'INSERT OR IGNORE INTO memories (id, timestamp, category, text) VALUES (6, 1581258214000, 1, "Went for a walk in the park nearby today.")');
     await _database.execute(
         'INSERT OR IGNORE INTO media (id, memory_id, path) VALUES(1, 1, "path1");');
     await _database.execute(
