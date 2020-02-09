@@ -77,7 +77,8 @@ class _MemoriesInitialPageState extends State<MemoriesInitialPage> {
               FlatButton(
                   onPressed: () =>
                       {moveScreen(context, () => MemoriesMediaPage())},
-                  child: Text('Next')),
+                  color: MaterialColor(0xFF00008B, color),
+                  child: Text('Next', style: TextStyle(color: Colors.white))),
             ],
           ),
         ));
