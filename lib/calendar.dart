@@ -1,36 +1,10 @@
 import 'dart:math';
 
+import 'package:dementia_hack/Database.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 import 'Memory.dart';
-
-//create array of memory objects
-
-Memory test1 = Memory(
-    category: 2,
-    text: "Baked a cake today.",
-    timestamp: 1577846800000,
-    media: [1, 34, 5, 6, 3, 4, 4]);
-Memory test2 = Memory(
-    category: 1,
-    text: "Walked around the park.",
-    timestamp: 1577846800000,
-    media: [1, 4, 6, 3, 6, 8, 3]);
-Memory test3 = Memory(
-    category: 3,
-    text: "Knitted a nice scarf.",
-    timestamp: 1577846800000,
-    media: [1, 3]);
-Memory test4 = Memory(
-    category: 4,
-    text: "Played around with nephews and nieces.",
-    timestamp: 1577846800000,
-    media: [1, 3, 4]);
-
-List<Memory> memories = [test1, test2, test3, test4];
-
-var ok = ["cookies", "chocolate", "cake"];
 
 class CalendarPage extends StatefulWidget {
   @override
@@ -39,13 +13,18 @@ class CalendarPage extends StatefulWidget {
 
 class _CalendarPageState extends State<CalendarPage> {
   CalendarController _controller;
-
   Map<String, int> numOfMemForDay;
+  List<Memory> memories;
 
   @override
   void initState() {
     super.initState();
-    numOfMemForDay = getInitialMap(memories);
+    DBProvider.db.getAllMemories().then((memories) => {
+          this.setState(() {
+            this.memories = memories;
+            numOfMemForDay = getInitialMap(memories);
+          })
+        });
 
     _controller = CalendarController();
   }
@@ -61,8 +40,6 @@ class _CalendarPageState extends State<CalendarPage> {
 
   @override
   Widget build(BuildContext context) {
-    String currentMonth;
-    String yesyes;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.lightBlueAccent,

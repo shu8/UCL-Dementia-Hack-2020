@@ -74,7 +74,7 @@ class DBProvider {
     print(response);
     List<Memory> memories = response.map((m) => Memory.fromMap(m)).toList();
     print(memories);
-    return response;
+    return memories;
   }
 
   addNewMemory({int timestamp, String text, int category}) async {
