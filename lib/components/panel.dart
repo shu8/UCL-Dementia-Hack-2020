@@ -51,16 +51,16 @@ class Panel extends StatelessWidget {
                         color: Colors.white70,
                         fontWeight: FontWeight.bold),
                   ),
-                  new SizedBox(
-                    height: 8.0,
-                  ),
+                  // new SizedBox(
+                  //   height: 8.0,
+                  // ),
                   new Text(
                     this.description,
                     style: new TextStyle(fontSize: 12.0, color: Colors.white70),
                   ),
-                  new SizedBox(
-                    height: 8.0,
-                  ),
+                  // new SizedBox(
+                  //   height: 8.0,
+                  // ),
                 ],
               )),
             ],
