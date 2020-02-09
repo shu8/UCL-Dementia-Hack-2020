@@ -2,8 +2,15 @@ import 'package:dementia_hack/common.dart';
 import 'package:dementia_hack/memoriesMedia.dart';
 import 'package:flutter/material.dart';
 
-class MemoriesInitialPage extends StatelessWidget {
+class MemoriesInitialPage extends StatefulWidget {
   MemoriesInitialPage() : super();
+
+  @override
+  _MemoriesInitialPageState createState() => _MemoriesInitialPageState();
+}
+
+class _MemoriesInitialPageState extends State<MemoriesInitialPage> {
+  String chosenMood;
 
   @override
   Widget build(BuildContext context) {
@@ -19,21 +26,45 @@ class MemoriesInitialPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Mood(
-                        icon: Icon(Icons.mood_bad),
-                        color: Colors.red,
-                      ),
+                          icon: Icon(Icons.mood_bad),
+                          color: Colors.red,
+                          label: 'bad',
+                          chosenMood: chosenMood,
+                          callback: () => {
+                                setState(() {
+                                  chosenMood = 'bad';
+                                })
+                              }),
                       Mood(
-                        icon: Icon(Icons.sentiment_dissatisfied),
-                        color: Colors.orange,
-                      ),
+                          icon: Icon(Icons.sentiment_dissatisfied),
+                          color: Colors.orange,
+                          label: 'not great',
+                          chosenMood: chosenMood,
+                          callback: () => {
+                                setState(() {
+                                  chosenMood = 'not great';
+                                })
+                              }),
                       Mood(
-                        icon: Icon(Icons.sentiment_satisfied),
-                        color: Colors.yellow[600],
-                      ),
+                          icon: Icon(Icons.sentiment_satisfied),
+                          color: Colors.yellow[600],
+                          label: 'good',
+                          chosenMood: chosenMood,
+                          callback: () => {
+                                setState(() {
+                                  chosenMood = 'good';
+                                })
+                              }),
                       Mood(
-                        icon: Icon(Icons.mood),
-                        color: Colors.green,
-                      ),
+                          icon: Icon(Icons.mood),
+                          color: Colors.green,
+                          label: 'great',
+                          chosenMood: chosenMood,
+                          callback: () => {
+                                setState(() {
+                                  chosenMood = 'great';
+                                })
+                              }),
                     ]),
               ),
               TextField(
@@ -57,16 +88,21 @@ class Mood extends StatelessWidget {
   final Icon icon;
   final Color color;
   final String label;
+  final String chosenMood;
+  final Function callback;
 
-  Mood({this.icon, this.color, this.label}) : super();
+  Mood({this.icon, this.color, this.label, this.chosenMood, this.callback})
+      : super();
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      icon: this.icon,
-      color: this.color,
-      iconSize: 60,
-      onPressed: () {},
-    );
+    return Container(
+        color: this.label == this.chosenMood ? this.color : Colors.transparent,
+        child: IconButton(
+          icon: this.icon,
+          color: this.label == this.chosenMood ? Colors.white : this.color,
+          iconSize: 60,
+          onPressed: () => {callback()},
+        ));
   }
 }
