@@ -7,7 +7,6 @@ class Panel extends StatelessWidget {
   final Color color;
   final Function clickHandler;
   final double height;
-  final Function childGenerator;
 
   Panel({
     Key key,

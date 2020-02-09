@@ -62,10 +62,14 @@ class _QuizState extends State<Quiz> {
     bank.addQuestion(1, 'What did you do today?', 'Reading');
     bank.addQuestion(2, 'How was your day?', 'Good');
     bank.addQuestion(3, 'What did you have for lunch?', 'Pasta');
+
+    bank.addQuestion(4, 'Who did you speak to today?', 'Friend');
+    bank.addQuestion(5, 'What did you this morning?', 'Painting');
+    bank.addQuestion(6, 'What did you paint?', 'Flowers');
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.deepOrange,
           title: Text('Trivia'),
+          backgroundColor: Colors.deepOrange[300],
         ),
         body: ListView.builder(
             itemCount: bank.getQuestions().length,
@@ -93,29 +97,25 @@ class _QuizState extends State<Quiz> {
                           clickHandler: () => {},
                         )),
                     Container(
-                        width: 415,
-                        height: 80,
-                        color: Colors.amber[600],
+                        width: 325,
                         child: TextField(
                           style: TextStyle(fontSize: 20, color: Colors.black),
                           decoration: InputDecoration(
-                            labelText: 'Enter answer',
+                            border: OutlineInputBorder(),
+                            labelText: 'Enter Answer',
                           ),
                         )),
                     Center(
                         child: Panel(
-                      title: 'Show answer',
-                      /***icon: ***/
-                      description: '',
-                      color: Colors.orange,
-                      clickHandler: () => setState(() {
-                        title:
-                        'Swda';
-                      }),
-                    ))
-                  ])
-                  // ]
-                  );
+                            title: 'Show answer',
+                            icon: Icons.question_answer,
+                            /***icon: ***/
+                            description: '',
+                            color: Colors.green[300],
+                            clickHandler: () => showAnswer(bank, index)))
+                  ]));
+
+              // ]
             }));
   }
 }

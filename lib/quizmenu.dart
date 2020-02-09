@@ -3,13 +3,13 @@ import 'common.dart';
 import 'package:dementia_hack/components/panel.dart';
 import 'quiz.dart';
 
-class TriviaMenu extends StatelessWidget{
+class TriviaMenu extends StatelessWidget {
   TriviaMenu() : super();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.deepOrange,
+        backgroundColor: Colors.deepOrange[300],
         title: Text("Trivia Menu"),
       ),
       body: Column(
@@ -23,7 +23,7 @@ class TriviaMenu extends StatelessWidget{
                 /***icon: ***/
                 description: '',
                 color: Colors.green,
-                clickHandler:()=> moveScreen(context, () => Quiz()),
+                clickHandler: () => moveScreen(context, () => Quiz()),
               )),
           Align(
               alignment: Alignment.topLeft,
@@ -33,7 +33,7 @@ class TriviaMenu extends StatelessWidget{
                 /***icon: ***/
                 description: '',
                 color: Colors.orange,
-                clickHandler:()=> moveScreen(context, () => Quiz()),
+                clickHandler: () => moveScreen(context, () => Quiz()),
               )),
           Align(
               alignment: Alignment.topLeft,
@@ -43,7 +43,7 @@ class TriviaMenu extends StatelessWidget{
                 /***icon: ***/
                 description: '',
                 color: Colors.red[200],
-                clickHandler:()=> moveScreen(context, () => Quiz()),
+                clickHandler: () => moveScreen(context, () => Quiz()),
               )),
         ],
       ),
