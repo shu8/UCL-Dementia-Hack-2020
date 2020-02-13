@@ -1,16 +1,18 @@
-# dementia_hack
+# Rewind (UCL Dementia Hack 2020)
 
-A new Flutter project.
+This repo contains the code created for the [UCL Dementia Hack 2020](https://www.ucl.ac.uk/iccs/events/2020/feb/ucl-dementia-hack).
 
-## Getting Started
+It is a journal-style mobile app created using [Flutter](https://flutter.dev).
 
-This project is a starting point for a Flutter application.
+The idea is to quiz users who are at-risk of having or have dementia on their own past, using entries they have written themselves.
 
-A few resources to get you started if this is your first Flutter project:
+Users can save textual, pictures, or audio content attached to each 'memory'.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Features
+- Rewind: a quiz with Easy, Medium, Hard levels asking questions on their past
+- Memories: a way to add memories with text/images/videos/voice notes
+- Activities: suggestions on what activities people could do to keep them active/socialising/etc.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Implementation
+
+The app uses Flutter and has an SQLite database storing the data. Media is saved in the app's own storage area.
